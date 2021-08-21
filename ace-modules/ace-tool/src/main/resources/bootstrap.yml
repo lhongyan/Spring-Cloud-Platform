@@ -9,9 +9,6 @@ eureka:
                     # docker 部署开启
             defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
 
-
-
-
 ribbon:
   eureka:
     enabled: true

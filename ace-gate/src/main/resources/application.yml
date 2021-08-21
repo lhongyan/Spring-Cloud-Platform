@@ -44,7 +44,7 @@ spring:
          add-to-simple-url-handler-mapping: true
          corsConfigurations:
            '[/**]':
-             allowed-origins: "*"
+             allowed-origins: ${ALLOWED_ORIGINS:http://192.168.1.6}"
              allowed-methods: "*"
              allowed-headers: "*"
              allow-credentials: true
@@ -90,7 +90,7 @@ spring:
           server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
   sentinel:
     transport:
-      dashboard: localhost:8080
+      dashboard: ${SENTINEL_TRANSPORT_DASHBOARD:localhost:8080}
 logging:
   level:
     com.github.wxiaoqi.security.gate.v2: info
