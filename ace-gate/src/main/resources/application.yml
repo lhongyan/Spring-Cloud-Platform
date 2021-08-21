@@ -19,12 +19,14 @@ spring:
   application:
       name: ace-gate
   redis:
-      database: 2
-      host: 127.0.0.1
-      jedis:
-        pool:
-            max-active: 20
-#  rabbitmq:
+    database: ${REDIS_DATABASE:2}
+    host: ${REDIS_HOST:127.0.0.1}
+    jedis:
+      pool:
+        max-active: 20
+    password: ${REDIS_PASSWORD:}
+    port: ${REDIS_PORT:6379}
+  #  rabbitmq:
 #      host: ${RABBIT_MQ_HOST:localhost}
 #      port:  ${RABBIT_MQ_PORT:5672}
 #      username: guest
@@ -85,7 +87,7 @@ spring:
             - StripPrefix=2
      nacos:
         discovery:
-          server-addr: 127.0.0.1:8848
+          server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
   sentinel:
     transport:
       dashboard: localhost:8080

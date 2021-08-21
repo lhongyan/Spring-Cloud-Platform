@@ -10,15 +10,17 @@ spring:
         time-zone: GMT+8
         default-property-inclusion: non_null
     redis:
-        database: 2
-        host: 127.0.0.1
-        jedis:
-            pool:
-                max-active: 20
+      database: ${REDIS_DATABASE:2}
+      host: ${REDIS_HOST:127.0.0.1}
+      jedis:
+        pool:
+          max-active: 20
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
     datasource:
         name: test
         url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/cloud_admin_v1?useUnicode=true&characterEncoding=UTF8
-        username: root
+        username: ${MYSQL_USERNAME:root}
         password: ${MYSQL_PASSWORD:K%bNvJ^DsY}x2U}
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
@@ -115,8 +117,8 @@ redis:
          maxIdle: 100
          maxWait: 1000
     host: ${REDIS_HOST:127.0.0.1}
-    port:  ${REDIS_PORT:6379}
-    password:
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
     timeout: 2000
     # 服务或应用名
     sysName: cloud-admin
